@@ -23,7 +23,7 @@ entity album {
 *id
 --
 *user_id
-*nazwa
+*name
 *description
 }
 
@@ -41,7 +41,6 @@ entity song {
 *album_id
 *reference
 *description_id
-*created_at
 }
 
 entity genre {
