@@ -1,0 +1,72 @@
+@startuml
+entity user {
+*id: serial
+--
+*group_id: unsigned bigint
+*username: text
+*email: text
+*password: text
+}
+
+entity group_permission{
+*id: serial
+--
+*name: text
+*add_song: boolean
+*delete_song: boolean
+*edit: boolean
+*add_comment: boolean
+*delete_comment: boolean
+}
+
+entity album {
+*id: serial
+--
+*user_id: unsigned bigint
+*nazwa: text
+*description: text
+}
+
+entity description {
+*id: serial
+..
+*author: text
+*released: date
+*description: text
+}
+
+entity song {
+*id: serial
+..
+*album_id: unsigned bigint
+*user_id: unsigned bigint
+*genre_id: unsigned bigint
+*reference: text
+*description_id: insigned bigint
+*created_at: timestamp
+}
+
+entity genre {
+*id: serial
+..
+*name: text
+}
+
+entity comment{
+*id: serial
+--
+*song_id: unsigned bigint
+*user_id: unsigned bigint
+*content: text
+*title: text
+}
+
+user --|{ album
+user --|{ comment
+album --|{ song
+song --|{ comment
+description--|{song
+song--genre
+user }|-- group_permission
+
+@enduml
