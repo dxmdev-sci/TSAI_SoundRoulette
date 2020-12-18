@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+}
+body {
+    padding-top: 20vh;
+    font-family: arial, serif;
+}
+main {
+    padding: 1em;
+    max-width: 40em;
+    margin: 0 auto;
+    background: black;
+    color: white;
+    text-align: center;
+}
+main form input,button {
+    width: 16em;
+    height: 2em;
+    font-size: 1em;
+}
+hr {
+    border-color: red;
+    max-width: 40em;
+}
+main form button{
+    background: limegreen;
+    color: white;
+    border-radius: 15px;
+}
