@@ -44,7 +44,7 @@ if($loggedUser && $loggedUser->getId() === $profileUser->getId()){
         </div>
     </header>
     <main class="wrapper">
-        rodzaj konta: <?php echo $profileUser->getGroupPermission()['name']; ?>
+        rodzaj konta: <?php echo $profileUser->getGroupPermission()->getName(); ?>
     </main>
 </body>
 </html>
