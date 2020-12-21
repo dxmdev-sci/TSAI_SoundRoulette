@@ -1,0 +1,71 @@
+@startuml
+entity user {
+*id
+--
+*group_id
+*username
+*email
+*password
+}
+
+entity group_permission{
+*id
+--
+*name
+*add_song
+*delete_song
+*edit
+*add_comment
+*comment_delete
+}
+
+entity album {
+*id
+--
+*user_id
+*nazwa
+*description
+}
+
+entity description {
+*id
+..
+*author
+*released
+*description
+}
+
+entity song {
+*id
+..
+*album_id
+*user_id
+*genre_id
+*reference
+*description_id
+}
+
+entity genre {
+*id
+..
+*name
+}
+
+entity comment{
+*id
+--
+*song_id
+*user_id
+*content
+*title
+}
+
+user --|{ album
+user --|{ comment
+album --|{ song
+song --|{ comment
+description--|{song
+song--genre
+user }|-- group_permission
+
+@enduml
