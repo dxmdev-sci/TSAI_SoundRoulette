@@ -50,6 +50,6 @@ class UserService {
     }
 
     public function isUserWithPasswordExists($username, $password) {
-        return $this->userRepository->isUserWithPasswordExists($username, $password);
+        return $this->userRepository->verifyPassword($username, $password);
     }
 }

@@ -20,7 +20,7 @@ class UserRepository extends Repository{
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
         $hash = $res['password'];
         if(password_verify($password,$hash)){
-            return $res['id'];
+            return true;
         }
         return false;
     }
