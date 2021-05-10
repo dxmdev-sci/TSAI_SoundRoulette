@@ -1,15 +1,16 @@
 <?php
 
 
-namespace App\Genre\Model;
+namespace App\Description\Model;
 
 
-class GenreModel {
+class DescriptionModel {
 
     private $id;
-    private $album_id;
+    private $author;
     private $description;
     private $released;
+
 
     /**
      * @return mixed
@@ -18,7 +19,6 @@ class GenreModel {
     {
         return $this->id;
     }
-
     /**
      * @param mixed $id
      */
@@ -26,37 +26,27 @@ class GenreModel {
     {
         $this->id = $id;
     }
-
     /**
      * @return mixed
      */
-    public function getAlbumId()
+    public function getAuthor()
     {
-        return $this->album_id;
+        return $this->author;
     }
 
     /**
-     * @param mixed $album_id
+     * @param mixed $author
      */
-    public function setAlbumId($album_id): void
+    public function setAuthor($author): void
     {
-        $this->album_id = $album_id;
+        $this->author = $author;
     }
-
     /**
      * @return mixed
      */
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description): void
-    {
-        $this->description = $description;
     }
 
     /**
@@ -67,6 +57,13 @@ class GenreModel {
         return $this->released;
     }
 
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
     /**
      * @param mixed $released
      */

@@ -1,12 +1,11 @@
 <?php
 
 
-namespace App\Description\Model;
+namespace App\Comment\Model;
 
 
-class DescriptionRequest {
+class CommentRequest {
 
-    private $id;
     private $author;
     private $description;
     private $released;

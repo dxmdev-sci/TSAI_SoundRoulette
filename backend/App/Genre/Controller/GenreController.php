@@ -57,9 +57,9 @@ class GenreController {
    * @Action(method="GET", path="/{id}")
    */
   public function getGenre($id) {
-    $GenreModel = $this->genreService->getGenre($id);
+    $genreModel = $this->genreService->getGenre($id);
 
-    echo JsonSerializer::getInstance()->serialize($this->genreModel, 'json');
+    echo JsonSerializer::getInstance()->serialize($genreModel, 'json');
   }
 
   /**

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Description\Model;
+namespace App\Comment\Model;
 
 
-class DescriptionRequest {
+class CommentModel {
 
     private $id;
     private $author;

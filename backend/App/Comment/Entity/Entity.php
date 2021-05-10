@@ -9,6 +9,7 @@ class CommentEntity extends Entity
     private $description;
     private $released;
 
+
     /**
      * @return mixed
      */
@@ -16,7 +17,13 @@ class CommentEntity extends Entity
     {
         return $this->id;
     }
-
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
     /**
      * @return mixed
      */
@@ -25,6 +32,13 @@ class CommentEntity extends Entity
         return $this->author;
     }
 
+    /**
+     * @param mixed $author
+     */
+    public function setAuthor($author): void
+    {
+        $this->author = $author;
+    }
     /**
      * @return mixed
      */
@@ -40,4 +54,20 @@ class CommentEntity extends Entity
     {
         return $this->released;
     }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+    /**
+     * @param mixed $released
+     */
+    public function setReleased($released): void
+    {
+        $this->released = $released;
+    }
+
 }

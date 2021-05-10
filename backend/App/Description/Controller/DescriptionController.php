@@ -20,7 +20,7 @@ use zpt\anno\Annotations;
  */
 class DescriptionController {
 
-  private $genreService;
+  private $descriptionService;
 
   /**
    * DescriptionController constructor.
@@ -57,9 +57,9 @@ class DescriptionController {
    * @Action(method="GET", path="/{id}")
    */
   public function getDescription($id) {
-    $descriptionModel = $this->descriptionService->getGenre($id);
+    $descriptionModel = $this->descriptionService->getDescription($id);
 
-    echo JsonSerializer::getInstance()->serialize($this->descriptionModel, 'json');
+    echo JsonSerializer::getInstance()->serialize($descriptionModel, 'json');
   }
 
   /**
