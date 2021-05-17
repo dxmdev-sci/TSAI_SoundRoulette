@@ -16,7 +16,7 @@ use App\User\Repository\UserRepository;
 
 class UserService {
 
-    const USER_GROUP_ID = 1;
+    const USER_GROUP_ID = 2;
 
     private $userRepository;
 
@@ -31,9 +31,10 @@ class UserService {
 
         $userEntity = new UserEntity();
 
-        $userEntity->setUsername($request->getUsername())
-            ->setPasswordHash(sha1($request->getPassword()))
-            ->setGroupId(self::USER_GROUP_ID);
+
+        $userEntity->setUsername($request->getUsername());
+        $userEntity->setPasswordHash(sha1($request->getPassword()));
+        $userEntity->setGroupId(self::USER_GROUP_ID);
 
         return ObjectMapper::map(
           $this->userRepository->save($userEntity),

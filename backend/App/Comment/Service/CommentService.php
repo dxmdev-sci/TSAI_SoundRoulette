@@ -58,11 +58,6 @@ class CommentService {
      * @throws \Exception
      */
     public function deleteComment($id, TokenObject $tokenObject) {
-        //TODO Later when we change $userId to user object from token, check that user is in admin group.
-
-        if ($id !== $tokenObject->getUserId()) {
-            throw new \Exception("User does not have access to given resource");
-        }
 
         $deletedRowsCount = $this->commentRepository->delete($id);
 

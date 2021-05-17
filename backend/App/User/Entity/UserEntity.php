@@ -8,10 +8,12 @@ class UserEntity extends Entity {
     private $group_id;
     private $username;
     private $email;
+    private $password_hash;
     private $profile_image;
-    //
-    protected $group_permission;
-    //
+
+    public function setPasswordHash($password_hash){
+        $this->password_hash = $password_hash;
+    }
     public function setId($id){
         $this->id = $id;
     }
@@ -28,7 +30,7 @@ class UserEntity extends Entity {
         $this->group_id = $id;
     }
     public function getGroupId(){
-        return $this->group_permission;
+        return $this->group_id;
     }
     public function getProfileImageSrc($profile_image){
         return $this->profile_image;

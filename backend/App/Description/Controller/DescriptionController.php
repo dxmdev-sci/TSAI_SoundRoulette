@@ -43,11 +43,12 @@ class DescriptionController {
    * @Authorized(permission="description_add")
    */
   public function createDescription() {
+      $user = JwtHelper::getUserFromAuthToken();
 
     /** @var DescriptionRequest $request */
     $request = RestBodyReader::readBody(DescriptionRequest::class);
 
-    $descriptionEntity = $this->descriptionService->createDescription($request);
+    $descriptionEntity = $this->descriptionService->createDescription($request, $user);
 
     echo JsonSerializer::getInstance()->serialize($descriptionEntity, 'json');
   }

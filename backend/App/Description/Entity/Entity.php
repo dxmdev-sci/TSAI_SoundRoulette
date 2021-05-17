@@ -3,9 +3,26 @@
 use App\Database\Entity\Entity;
 class DescriptionEntity extends Entity {
     private $id;
-    private $album_id;
+    private $author;
     private $description;
-    private $released;
+    private $created_at;
+    private $album;
+
+    /**
+     * @return mixed
+     */
+    public function getAlbum()
+    {
+        return $this->album;
+    }
+
+    /**
+     * @param mixed $album
+     */
+    public function setAlbum($album): void
+    {
+        $this->album = $album;
+    }
 
     /**
      * @return mixed
@@ -58,16 +75,22 @@ class DescriptionEntity extends Entity {
     /**
      * @return mixed
      */
-    public function getReleased()
+    public function getCreatedAt()
     {
-        return $this->released;
+        return $this->created_at;
     }
 
     /**
      * @param mixed $released
      */
-    public function setReleased($released): void
+    public function setCreatedAt($released): void
     {
-        $this->released = $released;
+        $this->created_at = $released;
+    }
+    public function setAuthor($userId){
+        $this->author = $userId;
+    }
+    public function getAuthor(){
+        return $this->author;
     }
 }

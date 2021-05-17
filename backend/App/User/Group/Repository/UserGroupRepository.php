@@ -13,6 +13,6 @@ class UserGroupRepository extends Repository {
   }
 
   protected function getTableName() {
-    return "group";
+    return "group_name";
   }
 }

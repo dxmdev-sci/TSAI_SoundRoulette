@@ -9,7 +9,7 @@ class AlbumModel {
 	private $id;
 	private $user_id;
 	private $name;
-	private $description;
+	private $general_description;
 	private $images;
 	private $last_edited;
 	private $created_at;
@@ -65,17 +65,17 @@ class AlbumModel {
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getGeneralDescription()
     {
-        return $this->description;
+        return $this->general_description;
     }
 
     /**
      * @param mixed $description
      */
-    public function setDescription($description): void
+    public function setGeneralDescription($description): void
     {
-        $this->description = $description;
+        $this->general_description = $description;
     }
 
     /**

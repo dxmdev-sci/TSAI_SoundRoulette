@@ -6,11 +6,8 @@ namespace App\Description\Model;
 
 class DescriptionRequest {
 
-    private $id;
-    private $author;
+    private $album;
     private $description;
-    private $released;
-
 
     /**
      * @return mixed
@@ -40,6 +37,9 @@ class DescriptionRequest {
     public function setAuthor($author): void
     {
         $this->author = $author;
+    }
+    public function getAlbum(){
+        return $this->album;
     }
     /**
      * @return mixed

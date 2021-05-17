@@ -29,11 +29,13 @@ class DescriptionService {
         $this->descriptionRepository = new DescriptionRepository();
     }
 
-    public function createDescription(DescriptionRequest $request) {
+    public function createDescription(DescriptionRequest $request, TokenObject $tokenObject) {
 
         $descriptionEntity = new DescriptionEntity();
 
+        $descriptionEntity->setAuthor($tokenObject->getUserId());
         $descriptionEntity->setDescription($request->getDescription());
+        $descriptionEntity->setCreatedAt(date("Y-m-d"));
 
         return ObjectMapper::map(
           $this->descriptionRepository->save($descriptionEntity),
@@ -58,11 +60,7 @@ class DescriptionService {
      * @throws \Exception
      */
     public function deleteDescription($id, TokenObject $tokenObject) {
-        //TODO Later when we change $userId to user object from token, check that user is in admin group.
 
-        if ($id !== $tokenObject->getUserId()) {
-            throw new \Exception("User does not have access to given resource");
-        }
 
         $deletedRowsCount = $this->descriptionRepository->delete($id);
 

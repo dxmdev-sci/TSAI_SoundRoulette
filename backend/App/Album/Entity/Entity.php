@@ -7,7 +7,7 @@ class AlbumEntity extends Entity
     private $id;
     private $user_id;
     private $name;
-    private $description;
+    private $general_description;
 
     public function getId(){
        return $this->id;
@@ -18,8 +18,8 @@ class AlbumEntity extends Entity
     public function getName(){
         return $this->name;
     }
-    public function getDescription(){
-        return $this->description;
+    public function getGeneralDescription(){
+        return $this->general_description;
     }
 
     public function setId($id): void
@@ -27,9 +27,9 @@ class AlbumEntity extends Entity
         $this->id = $id;
     }
 
-    public function setDescription($description): void
+    public function setGeneralDescription($description): void
     {
-        $this->description = $description;
+        $this->general_description = $description;
     }
 
     public function setName($name): void

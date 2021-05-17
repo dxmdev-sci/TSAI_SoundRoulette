@@ -33,7 +33,8 @@ class AlbumService {
 
         $albumEntity = new AlbumEntity();
 
-        $albumEntity->setAlbum($request->getDescription());
+        $albumEntity->setName($request->getName());
+        $albumEntity->setGeneralDescription($request->getGeneralDescription());
 
         return ObjectMapper::map(
           $this->albumRepository->save($albumEntity),
@@ -58,11 +59,6 @@ class AlbumService {
      * @throws \Exception
      */
     public function deleteAlbum($id, TokenObject $tokenObject) {
-        //TODO Later when we change $userId to user object from token, check that user is in admin group.
-
-        if ($id !== $tokenObject->getUserId()) {
-            throw new \Exception("User does not have access to given resource");
-        }
 
         $deletedRowsCount = $this->albumRepository->delete($id);
 
