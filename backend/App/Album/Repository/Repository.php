@@ -4,6 +4,6 @@ use App\Album\Entity\AlbumEntity;
 
 class AlbumRepository extends Repository
 {
-    protected function getEntityName(){return "AlbumEntity";}
+    protected function getEntityName(){return "App\Album\Entity\AlbumEntity";}
     protected function getTableName(){return "album";}
 }

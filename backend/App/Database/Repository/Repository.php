@@ -30,6 +30,7 @@ abstract class Repository {
             ":id" => $id
         ));
 
+        $query->setFetchMode(PDO::FETCH_CLASS, $this->getEntityName());
         return $query->fetch();
     }
 

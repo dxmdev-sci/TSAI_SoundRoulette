@@ -74,6 +74,8 @@ class DescriptionController {
     /** @var DescriptionEntity $entity */
     $entity = $x->getById($id);
 
+    var_dump($entity);
+    
     $entity->setDescription("ala_ma_kota");
 
     $x->save($entity);
