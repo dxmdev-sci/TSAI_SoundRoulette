@@ -42,6 +42,21 @@ class AlbumService {
         );
     }
 
+    public function updateAlbum($id,AlbumRequest $request){
+        /** @var $entity AlbumEntity */
+        $entity = $this->albumRepository->getById($id);
+
+        if(!empty($request->getName()))
+            $entity->setName($request->getName());
+        if(!empty($request->getGeneralDescription()))
+            $entity->setGeneralDescription($request->getGeneralDescription());
+
+        return ObjectMapper::map(
+            $this->albumRepository->save($entity),
+            AlbumModel::class
+        );
+}
+
     /**
      * @param $id
      * @return object

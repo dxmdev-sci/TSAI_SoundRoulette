@@ -54,6 +54,16 @@ class DescriptionService {
         );
     }
 
+    public function updateDescription($id, DescriptionRequest $request){
+        $entity = $this->descriptionRepository->getById($id);
+        $entity->setDescription($request->getDescription());
+
+        return ObjectMapper::map(
+            $this->descriptionRepository->save($entity),
+            DescriptionModel::class
+        );
+    }
+
     /**
      * @param $id
      * @param TokenObject $tokenObject

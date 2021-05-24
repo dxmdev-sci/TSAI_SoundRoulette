@@ -65,15 +65,10 @@ class UserController {
    * @Action(method="PUT", path="/{id}")
    */
   public function updateUser($id) {
+      $request = RestBodyReader::readBody(UserRequest::class);
+      $entity = $this->userService->updateUser($id, $request);
 
-    $x = new UserRepository();
-
-    /** @var UserEntity $entity */
-    $entity = $x->getById($id);
-
-    $entity->setUsername("ala_ma_kota");
-
-    $x->save($entity);
+      echo JsonSerializer::getInstance()->serialize($entity,'json');
   }
 
   /**

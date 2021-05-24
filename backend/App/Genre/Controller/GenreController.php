@@ -67,15 +67,9 @@ class GenreController {
    * @Action(method="PUT", path="/{id}")
    */
   public function updateGenre($id) {
-
-    $x = new GenreRepository();
-
-    /** @var GenreEntity $entity */
-    $entity = $x->getById($id);
-
-    $entity->setName("ala_ma_kota");
-
-    $x->save($entity);
+    $request = RestBodyReader::readBody(GenreRequest::class);
+    $genreModel = $this->genreService->updateGenre($id, $request);
+    echo JsonSerializer::getInstance()->serialize($genreModel, 'json');
   }
 
   /**

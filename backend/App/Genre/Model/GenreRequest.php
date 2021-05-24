@@ -15,13 +15,4 @@ class GenreRequest {
         return $this->name;
     }
 
-    /**
-     * @param mixed $name
-     * @return GenreRequest
-     */
-    public function setName($name) {
-        $this->name = $name;
-        return $this;
-    }
-
 }

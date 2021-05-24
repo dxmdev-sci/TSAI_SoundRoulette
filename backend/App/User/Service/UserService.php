@@ -70,4 +70,31 @@ class UserService {
             throw new \Exception(sprintf("Failed user deletion with id: %d", $id));
         }
     }
+
+    public function updateUser($id, UserRequest $request){
+
+
+        /** @var UserEntity $entity */
+        $entity = $this->userRepository->getById($id);
+        //change username
+        if(!empty($request->getUsername()))
+            $entity->setUsername($request->getUsername());
+        //change password
+        if(!empty($request->getPassword()))
+            $entity->setPasswordHash(sha1($request->getPassword()));
+        //change group_id
+        if(!empty($request->getGroupId()))
+            $entity->setGroupId($request->getGroupId());
+        //change email
+        if(!empty($request->getGroupId()))
+            $entity->setEmail($request->getEmail());
+        //change profileImgSrc
+        if(!empty($request->getProfileImage()))
+            $entity->setProfileImageSrc($request->getProfileImage());
+
+        return ObjectMapper::map(
+            $x->save($entity),
+            UserModel::class
+        );
+    }
 }

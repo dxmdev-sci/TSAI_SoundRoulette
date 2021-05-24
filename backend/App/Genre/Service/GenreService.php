@@ -52,6 +52,18 @@ class GenreService {
         );
     }
 
+    public function updateGenre($id, GenreRequest $request) {
+
+        /** @var GenreEntity $entity */
+        $entity = $this->genreRepository->getById($id);
+
+        $entity->setName($request->getName());
+        return ObjectMapper::map(
+            $this->genreRepository->save($entity),
+            GenreModel::class
+        );
+    }
+
     /**
      * @param $id
      * @param TokenObject $tokenObject

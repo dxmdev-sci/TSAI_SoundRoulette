@@ -68,17 +68,10 @@ class DescriptionController {
    * @Action(method="PUT", path="/{id}")
    */
   public function updateDescription($id) {
+    $req = RestBodyReader::readBody(DescriptionRequest::class);
+    $descriptionModel = $this->descriptionService->updateDescription($id, $req);
 
-    $x = new DescriptionRepository();
-
-    /** @var DescriptionEntity $entity */
-    $entity = $x->getById($id);
-
-    var_dump($entity);
-    
-    $entity->setDescription("ala_ma_kota");
-
-    $x->save($entity);
+    echo JsonSerializer::getInstance()->serialize($descriptionModel, 'json');
   }
 
   /**

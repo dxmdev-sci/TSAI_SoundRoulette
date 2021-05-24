@@ -8,6 +8,33 @@ class UserRequest {
 
     private $username;
     private $password;
+    private $group_id;
+    private $email;
+    private $profile_image;
+
+    /**
+     * @return mixed
+     */
+    public function getProfileImage()
+    {
+        return $this->profile_image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGroupId()
+    {
+        return $this->group_id;
+    }
 
     /**
      * @return mixed
@@ -17,27 +44,11 @@ class UserRequest {
     }
 
     /**
-     * @param mixed $username
-     * @return UserRequest
-     */
-    public function setUsername($username) {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getPassword() {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     * @return UserRequest
-     */
-    public function setPassword($password) {
-        $this->password = $password;
-        return $this;
-    }
+
 }
